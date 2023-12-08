@@ -133,13 +133,14 @@ div.sacramentSheet.printShow {
     margin-bottom: -0.05rem
 }
 
-.meetingBody{
+.meetingBody {
     padding: 3rem;
 }
 
-.meetingBody h3 {
-    font-size: 1rem;
-}
+    .meetingBody h3 {
+        font-size: 1rem;
+        text-align: left;
+    }
 
 div.meetingBody {
     padding: 0.5rem 0;
@@ -148,3 +149,5 @@ div.meetingBody {
 div.sacramentSheet div.meetingBody div {
     padding: .5rem 0
 }
+
+.

@@ -19,11 +19,11 @@ namespace SacramentMeetingPlanner.Models
         public string EventName { get; set; } = "";
 
         [StringLength(100)]
-        [Display(Name = "Event Info")]
+        [Display(Name = "Person")]
         public string? EventInfo { get; set; }
 
         [StringLength(150)]
-        [Display(Name = "Event Footer")]
+        [Display(Name = "Event Detail")]
         public string? EventFooter { get; set; }
 
         [Required]

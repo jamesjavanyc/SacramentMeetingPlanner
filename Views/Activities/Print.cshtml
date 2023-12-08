@@ -30,9 +30,7 @@
 
                 int padding = length - activityStringLen;
 
-                string stringPad = new string('.', padding);
-
-                string finishedString = (activity.EventName + " " + stringPad + " " + activity.EventInfo);
+                string finishedString = (activity.EventName + " " + "/" + " " + activity.EventInfo);
 
                 if (activity.EventName == "Speaker")
                 {
@@ -66,7 +64,7 @@
             {
                 string finishedString = ($"{activity.EventName}");
 
-                @:<div>
+                @:<div class="meetingEvent">
                     @:<h3>
                         @finishedString
                     @:</h3>
