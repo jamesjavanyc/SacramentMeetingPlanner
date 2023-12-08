@@ -1,0 +1,76 @@
+﻿﻿
+@model SacramentMeetingPlanner.Models.Activity
+
+@{
+    ViewData["Title"] = "Create an Agenda";
+}
+
+<h1 class="form-topper">Create Agenda</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Ward</label>
+                <select class="form-control" asp-items="ViewBag.MeetingsID" name="selectedMeeting"></select>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <select asp-for="EventName" class="form-control">
+                    <!--These are all people events that should only happen once in a meeting-->
+                    <option value="Presiding">Presiding</option>
+                    <option value="Conducting">Conducting</option>
+                    <option value="Invocation">Invocation</option>
+                    <option value="Benediction">Benediction</option>
+                    <!--These are all the people events that can happen multiple times or never happen in a meeting-->
+                    <option value="Speaker">Speaker</option>
+                    <option value="Youth Speaker">Youth Speaker</option>
+                    <!--These are the Hymn Events that should only happen once in a meeting-->
+                    <option value="Opening Hymn">Opening Hymn</option>
+                    <option value="Sacrament Hymn">Sacrament Hymn</option>
+                    <option value="Closing Hymn">Closing Hymn</option>
+                    <!--These are optional Song Events that should only happen once-->
+                    <option value="Intermediate Hymn">Intermediate Hymn</option>
+                    <option value="Musical Number">Musical Number</option>
+                    <!--These are Events that should only happen once in the meeting-->
+                    <option value="Passing of the Sacrament">Passing of the Sacrament</option>
+                    <option value="Ward Business">Ward Business</option>
+                    <option value="Testimonies">Testimonies</option>
+                </select>
+                <span asp-validation-for="EventName" class="text-danger"></span>
+                <p class="text-danger">@ViewData["ErrorMessage"]</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventInfo" class="control-label"></label>
+                <input asp-for="EventInfo" class="form-control" />
+                <span asp-validation-for="EventInfo" class="text-danger"></span>
+                <p class="text-danger">@ViewData["NullMessage"]</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventFooter" class="control-label"></label>
+                <input asp-for="EventFooter" class="form-control" />
+                <span asp-validation-for="EventFooter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order" class="control-label"></label>
+                <p>Note: Smallest number will go first, largest will go last.</p>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="formA">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

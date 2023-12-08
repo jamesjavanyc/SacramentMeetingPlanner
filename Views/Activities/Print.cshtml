@@ -1,0 +1,80 @@
+﻿﻿
+@model SacramentMeetingPlanner.Models.Activity
+
+@{
+    ViewData["Title"] = "Print";
+}
+
+<h1 class="form-topper">Print Program</h1>
+<form>
+    <div class="form-actions no-color">
+        <p>Meeting: <select style="width:200px;" asp-items="ViewBag.MeetingsID" name="printMeeting"></select></p>
+        <input type="submit" value="See label" class="btn btn-spacing" />
+    </div>
+</form>
+
+<div class="sacramentSheet @ViewData["printMeetingShow"]">
+    <div class="meetingTop">
+        <h3 class="wardName">@ViewData["MeetingWard"]</h3>
+        <h3 class="wardInfo">@ViewData["MeetingAddress"]</h3>
+        <h3 class="wardInfo">@ViewData["MeetingDate"]</h3>
+
+    </div>
+    <div class="meetingBody">
+        @foreach (Activity activity in ViewBag.PrintList)
+        {
+            int length = 50;
+            if (activity.EventInfo != null)
+            {
+                int activityStringLen = activity.EventName.Length + activity.EventInfo.Length;
+
+                int padding = length - activityStringLen;
+
+                string stringPad = new string('.', padding);
+
+                string finishedString = (activity.EventName + " " + stringPad + " " + activity.EventInfo);
+
+                if (activity.EventName == "Speaker")
+                {
+                   @:<div>
+                        @:<h3>
+                            @finishedString
+                        @:</h3>
+                    @:</div> 
+                }
+                else if (activity.EventName == "Youth Speaker")
+                {
+                   @:<div>
+                        @:<h3>
+                            @finishedString
+                        @:</h3>
+                    @:</div> 
+                }
+                else
+                {
+                    @:<div>
+                        @:<h3>
+                            @finishedString
+                        @:</h3>
+                        @:<h3>
+                            @activity.EventFooter
+                        @:</h3>
+                    @:</div>
+                }
+            }
+            else
+            {
+                string finishedString = ($"{activity.EventName}");
+
+                @:<div>
+                    @:<h3>
+                        @finishedString
+                    @:</h3>
+                    @:<h3>
+                        @activity.EventFooter
+                    @:</h3>
+                @:</div>
+            }
+        }
+    </div>
+</div>
