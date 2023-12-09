@@ -8,89 +8,89 @@ using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Models;
 
-namespace SacramentMeetingPlanner.Controllers
+namespace SacramentMeetingPlanner.Views
 {
-    public class MeetingsController : Controller
+    public class TalksController : Controller
     {
         private readonly ProgramContext _context;
 
-        public MeetingsController(ProgramContext context)
+        public TalksController(ProgramContext context)
         {
             _context = context;
         }
 
-        // GET: Meetings
+        // GET: Talks
         public async Task<IActionResult> Index()
         {
-              return _context.Meetings != null ? 
-                          View(await _context.Meetings.ToListAsync()) :
-                          Problem("Entity set 'ProgramContext.Meetings'  is null.");
+              return _context.Talk != null ? 
+                          View(await _context.Talk.ToListAsync()) :
+                          Problem("Entity set 'ProgramContext.Talk'  is null.");
         }
 
-        // GET: Meetings/Details/5
+        // GET: Talks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Meetings == null)
+            if (id == null || _context.Talk == null)
             {
                 return NotFound();
             }
 
-            var meeting = await _context.Meetings
+            var talk = await _context.Talk
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (meeting == null)
+            if (talk == null)
             {
                 return NotFound();
             }
 
-            return View(meeting);
+            return View(talk);
         }
 
-        // GET: Meetings/Create
+        // GET: Talks/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Meetings/Create
+        // POST: Talks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ward,Date,Address")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("Id,MeetingId,Speaker,Topic")] Talk talk)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(meeting);
+                _context.Add(talk);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(meeting);
+            return View(talk);
         }
 
-        // GET: Meetings/Edit/5
+        // GET: Talks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Meetings == null)
+            if (id == null || _context.Talk == null)
             {
                 return NotFound();
             }
 
-            var meeting = await _context.Meetings.FindAsync(id);
-            if (meeting == null)
+            var talk = await _context.Talk.FindAsync(id);
+            if (talk == null)
             {
                 return NotFound();
             }
-            return View(meeting);
+            return View(talk);
         }
 
-        // POST: Meetings/Edit/5
+        // POST: Talks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ward,Date,Address")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingId,Speaker,Topic")] Talk talk)
         {
-            if (id != meeting.Id)
+            if (id != talk.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 try
                 {
-                    _context.Update(meeting);
+                    _context.Update(talk);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MeetingExists(meeting.Id))
+                    if (!TalkExists(talk.Id))
                     {
                         return NotFound();
                     }
@@ -115,58 +115,49 @@ namespace SacramentMeetingPlanner.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(meeting);
+            return View(talk);
         }
 
-        // GET: Meetings/Delete/5
+        // GET: Talks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Meetings == null)
+            if (id == null || _context.Talk == null)
             {
                 return NotFound();
             }
 
-            var meeting = await _context.Meetings
+            var talk = await _context.Talk
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (meeting == null)
+            if (talk == null)
             {
                 return NotFound();
             }
 
-            return View(meeting);
+            return View(talk);
         }
 
-        // POST: Meetings/Delete/5
+        // POST: Talks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Meetings == null)
+            if (_context.Talk == null)
             {
-                return Problem("Entity set 'ProgramContext.Meetings'  is null.");
+                return Problem("Entity set 'ProgramContext.Talk'  is null.");
             }
-            var meeting = await _context.Meetings.FindAsync(id);
-            //if (meeting != null)
-            //{
-            //    // Delete all the activites in the meeting.
-            //    foreach (Activity a in _context.Activities) 
-            //    {
-            //        if(a.MeetingID == meeting.Id) 
-            //        {
-            //            _context.Activities.Remove(a);
-            //        }
-            //    }
-            //    _context.Meetings.Remove(meeting);
-
-            //}
+            var talk = await _context.Talk.FindAsync(id);
+            if (talk != null)
+            {
+                _context.Talk.Remove(talk);
+            }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MeetingExists(int id)
+        private bool TalkExists(int id)
         {
-          return (_context.Meetings?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Talk?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

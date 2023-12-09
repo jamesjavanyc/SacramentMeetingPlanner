@@ -11,6 +11,19 @@ namespace SacramentMeetingPlanner.Data
         }
 
         public DbSet<Meeting> Meetings { get; set; }
-        public DbSet<Activity> Activities { get; set; }
+
+        public DbSet<SacramentMeetingPlanner.Models.Talk> Talk { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Meeting>()
+                .HasMany(m => m.Talks)
+                .WithOne(t => t.Meeting)
+                .HasForeignKey(t => t.MeetingId)
+                .HasPrincipalKey(t => t.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

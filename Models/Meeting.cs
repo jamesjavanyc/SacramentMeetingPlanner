@@ -23,6 +23,8 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Address")]
         public string? Address { get; set; }
 
+        public List<Talk> Talks { get; set; }
+
         // OPTIONAL MEETING TYPE
         // public int Type { get; set; }
     }
