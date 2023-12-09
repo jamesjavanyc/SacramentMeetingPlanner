@@ -6,12 +6,38 @@ namespace SacramentMeetingPlanner.Models
     {
         public int Id { get; set; }
 
-        // Things specific to the meeting.
-
         [Required]
         [StringLength(250)]
         [Display(Name = "Ward")]
         public string Ward { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Leader")]
+        public string Leader { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Opening Song")]
+        public string OpeningSong { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Closing Song")]
+        public string ClosingSong { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Opening Prayer")]
+        public string OpeningPrayer { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Closing Prayer")]
+        public string ClosingPrayer { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Hymn")]
+        public string Hymn { get; set; } = "";
+        [Required]
+        [StringLength(250)]
+        [Display(Name = "Music Number")]
+        public string MusicNumber { get; set; } = "";
 
         [Required]
         [DataType(DataType.Date)]
