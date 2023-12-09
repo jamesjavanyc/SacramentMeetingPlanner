@@ -11,7 +11,7 @@ using SacramentMeetingPlanner.Data;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(ProgramContext))]
-    partial class SacramentContextModelSnapshot : ModelSnapshot
+    partial class ProgramContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
