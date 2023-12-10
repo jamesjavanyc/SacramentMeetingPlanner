@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create Meeting";
 }
 
-<h3 class="form-topper">+ New Meeting</h3>
+<h4 class="form-topper">New Meeting</h4>
 
 
 <hr />
@@ -12,6 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Leader" class="control-label"></label>
                 <input asp-for="Leader" class="form-control" />
@@ -23,19 +28,9 @@
                 <span asp-validation-for="OpeningSong" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClosingSong" class="control-label"></label>
-                <input asp-for="ClosingSong" class="form-control" />
-                <span asp-validation-for="ClosingSong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="OpeningPrayer" class="control-label"></label>
                 <input asp-for="OpeningPrayer" class="form-control" />
                 <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClosingPrayer" class="control-label"></label>
-                <input asp-for="ClosingPrayer" class="form-control" />
-                <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SacramentHymn" class="control-label"></label>
@@ -47,21 +42,25 @@
                 <input asp-for="MusicNumber" class="form-control" />
                 <span asp-validation-for="MusicNumber" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
+                <label asp-for="ClosingSong" class="control-label"></label>
+                <input asp-for="ClosingSong" class="form-control" />
+                <span asp-validation-for="ClosingSong" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn" />
+             <div class="form-group">
+                <label asp-for="ClosingPrayer" class="control-label"></label>
+                <input asp-for="ClosingPrayer" class="form-control" />
+                <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <input type="submit" value="Create Meeting" class="btn btn-sm btn-secondary my-1 mt-3" />
             </div>
         </form>
     </div>
 </div>
 
 <div class="formA">
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>
 
 @section Scripts {

@@ -6,7 +6,6 @@ namespace SacramentMeetingPlanner.Models
     {
         public int Id { get; set; }
 
-        public string Ward { get; set; } = "";
         [Required]
         [StringLength(250)]
         [Display(Name = "Leader")]
@@ -33,12 +32,12 @@ namespace SacramentMeetingPlanner.Models
         public string SacramentHymn { get; set; } = "";
         [Required]
         [StringLength(250)]
-        [Display(Name = "Music Number")]
+        [Display(Name = "Intermediate Hymn - Music Number")]
         public string MusicNumber { get; set; } = "";
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dddd, dd MMMM yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Meeting Date")]
         public DateTime Date { get; set; }
 
