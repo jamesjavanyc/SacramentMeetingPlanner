@@ -1,10 +1,10 @@
 ﻿@model SacramentMeetingPlanner.Models.Meeting
 
 @{
-    ViewData["Title"] = "Create Ward";
+    ViewData["Title"] = "Create Meeting";
 }
 
-<h1 class="form-topper">Create a new Ward</h1>
+<h3 class="form-topper">+ New Meeting</h3>
 
 
 <hr />
@@ -12,12 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Ward" class="control-label"></label>
-                <input asp-for="Ward" class="form-control" />
-                <span asp-validation-for="Ward" class="text-danger"></span>
-            </div>
-
             <div class="form-group">
                 <label asp-for="Leader" class="control-label"></label>
                 <input asp-for="Leader" class="form-control" />
@@ -44,9 +38,9 @@
                 <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hymn" class="control-label"></label>
-                <input asp-for="Hymn" class="form-control" />
-                <span asp-validation-for="Hymn" class="text-danger"></span>
+                <label asp-for="SacramentHymn" class="control-label"></label>
+                <input asp-for="SacramentHymn" class="form-control" />
+                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MusicNumber" class="control-label"></label>
@@ -58,11 +52,6 @@
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn" />

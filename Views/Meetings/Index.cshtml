@@ -4,35 +4,28 @@
     ViewData["Title"] = "Meetings";
 }
 
-<h1 class="form-topper">View Wards</h1>
+<h3 class="form-topper">Sacrament Meetings</h3>
 <p>
-    <a asp-action="Create">Create a New Ward</a>
+    <a asp-action="Create" class="btn btn-sm btn-secondary text-decoration-none">+ New Meeting</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ward)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Ward)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Delete</a>
             </td>
         </tr>
 }

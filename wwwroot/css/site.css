@@ -4,13 +4,14 @@ div.container, a, p {
     font-family: 'Poppins', 'Raleway';
     font-size: 1rem;
     font-weight: 400;
-    color: gray;
+    color: var(--bs-gray-200);
 }
 
-h1 {
+
+h1, h2, h3, h4, h5 {
+    color: black;
     font-family: 'Roboto', Poppins;
 }
-
 .form-topper{
     margin-top:1rem;
 }
@@ -29,15 +30,25 @@ html {
     position: relative;
     min-height: 100%;
 }
-
 body {
-    margin-bottom: 60px;
-    background-color: rgb(233,233,224);
+    background-image: url('/img/chapel.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+main {
+    background-color: #b0c2c6;
+    opacity: .75;
+    padding: 2em;
+    color: black;
+}
+
+
 header, footer {
-    background-color: lightblue;
-    color: gray;
+    background-color: #0d2330;
+    color: #f6fcfa;
     padding: 1rem;
 }
 
@@ -58,33 +69,32 @@ div.home_pg a {
 
 .nav-link {
     font-size: 1.2rem;
-    color: gray;
+    color: var(--bs-gray-200);
 }
 
-.nav-link:hover {
-    color: gray;
-    font-weight: 900;
-}
+    .nav-link:hover {
+        color: var(--bs-gray-200);
+        font-weight: 900;
+    }
 
-.nav-link:visited {
-    color: blue;
-}
+    .nav-link:visited {
+        color: var(--bs-gray-200);
+    }
 
 label{
-    margin-top: 1.5rem;
+    margin-top: .5rem;
 }
 
 .btn {
-    background-color: #798C8C;
+    background-color: #0d2330;
     margin-top: .5rem;
     color: #F2EFDF;
 }
 
-.btn:hover {
-    background-color: #F2EFDF;
-    color: #798C8C;
-    border: 2px solid #798C8C;
-}
+    .btn:hover {
+        background-color: #F2EFDF;
+        color: #0d2330;
+    }
 
 div.formA {
     margin-top: .5rem;
@@ -92,7 +102,7 @@ div.formA {
 }
 
 a:hover {
-    color: #59554C;
+    color: white;
     font-weight: 700;
 }
 
@@ -137,10 +147,10 @@ div.sacramentSheet.printShow {
     padding: 3rem;
 }
 
-    .meetingBody h3 {
-        font-size: 1rem;
-        text-align: left;
-    }
+.meetingBody h3 {
+    font-size: 1rem;
+    text-align: left;
+}
 
 div.meetingBody {
     padding: 0.5rem 0;
@@ -149,5 +159,3 @@ div.meetingBody {
 div.sacramentSheet div.meetingBody div {
     padding: .5rem 0
 }
-
-.

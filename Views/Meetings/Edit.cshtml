@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit Meeting";
 }
 
-<h1 class="form-topper">Edit Ward</h1>
+<h3 class="form-topper">Edit Meeting</h3>
 
 <hr />
 <div class="row">
@@ -13,11 +13,10 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Ward" class="control-label"></label>
-                <input asp-for="Ward" class="form-control" />
-                <span asp-validation-for="Ward" class="text-danger"></span>
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Leader" class="control-label"></label>
                 <input asp-for="Leader" class="form-control" />
@@ -29,14 +28,24 @@
                 <span asp-validation-for="OpeningSong" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClosingSong" class="control-label"></label>
-                <input asp-for="ClosingSong" class="form-control" />
-                <span asp-validation-for="ClosingSong" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="OpeningPrayer" class="control-label"></label>
                 <input asp-for="OpeningPrayer" class="form-control" />
                 <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentHymn" class="control-label"></label>
+                <input asp-for="SacramentHymn" class="form-control" />
+                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MusicNumber" class="control-label"></label>
+                <input asp-for="MusicNumber" class="form-control" />
+                <span asp-validation-for="MusicNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClosingSong" class="control-label"></label>
+                <input asp-for="ClosingSong" class="form-control" />
+                <span asp-validation-for="ClosingSong" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClosingPrayer" class="control-label"></label>
@@ -44,35 +53,14 @@
                 <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hymn" class="control-label"></label>
-                <input asp-for="Hymn" class="form-control" />
-                <span asp-validation-for="Hymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MusicNumber" class="control-label"></label>
-                <input asp-for="MusicNumber" class="form-control" />
-                <span asp-validation-for="MusicNumber" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn" />
+                <input type="submit" value="Save" class="btn btn-sm btn-secondary my-1" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>
 
 @section Scripts {
