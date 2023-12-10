@@ -21,6 +21,30 @@ h1, h2, h3, h4, h5 {
         font-size: 1rem;
     }
 }
+@media (max-width: 768px) {
+    html {
+        font-size: .8rem;
+    }
+}
+@media (max-width: 576px) {
+    html {
+        font-size: .6rem;
+          }
+    .navbar-toggler {
+        background-color: #c5e4e4;
+    }
+        .navbar-toggler:hover {
+            background-color: #c5e8e8;
+           
+        }
+}
+@media (min-width: 576px) {
+    .navbar-expand-sm {
+        flex-wrap: wrap;
+    }
+    
+  
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
