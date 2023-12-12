@@ -39,12 +39,15 @@
         <dd class="col-sm-6">
             @Html.DisplayFor(model => model.SacramentHymn)
         </dd>
-        <dt class="col-sm-6">
-            @Html.DisplayNameFor(model => model.MusicNumber)
-        </dt>
-        <dd class="col-sm-6">
-            @Html.DisplayFor(model => model.MusicNumber)
+        @if (Model.MusicNumber != null)
+        {
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.MusicNumber)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.MusicNumber)
         </dd>
+        }
         <dt class="col-sm-12">
             @Html.DisplayNameFor(model => model.Talks)
         </dt>
