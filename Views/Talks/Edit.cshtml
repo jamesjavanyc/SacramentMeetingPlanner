@@ -2,40 +2,39 @@
 
 @{
     ViewData["Title"] = "Edit";
+    List<Meeting> Meetings = ViewBag.Meetings;
 }
-
 
 <h4>Edit Talk</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <p>Fields marked with <span class="required"></span> are required.</p>
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="MeetingId" class="control-label"></label>
-                <input asp-for="MeetingId" class="form-control" />
+                <label asp-for="MeetingId" class="control-label required"></label>
+                <select asp-for="MeetingId" class="form-control" asp-for="MeetingId" asp-items="new SelectList(Meetings, nameof(Meeting.Id), nameof(Meeting.DateFormatted))">
+                    <option value="">--Select--</option>
+                </select>
                 <span asp-validation-for="MeetingId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Speaker" class="control-label"></label>
+                <label asp-for="Speaker" class="control-label required"></label>
                 <input asp-for="Speaker" class="form-control" />
                 <span asp-validation-for="Speaker" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Topic" class="control-label"></label>
+                <label asp-for="Topic" class="control-label required"></label>
                 <input asp-for="Topic" class="form-control" />
                 <span asp-validation-for="Topic" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save Talk" class="btn btn-sm btn-secondary my-1" />
+            <div class="form-group mt-3">
+                <input type="submit" value="Save Talk" class="btn btn-sm btn-primary my-1" />
+                <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>
 
 @section Scripts {

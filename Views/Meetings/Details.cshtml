@@ -45,6 +45,20 @@
         <dd class="col-sm-6">
             @Html.DisplayFor(model => model.MusicNumber)
         </dd>
+        <dt class="col-sm-12">
+            @Html.DisplayNameFor(model => model.Talks)
+        </dt>
+        <dd class="col-sm-12">
+            @if (Model.Talks != null)
+            {
+                <ul>
+                    @foreach (var talk in Model.Talks)
+                    {
+                        <li>@talk.Topic - @talk.Speaker</li>
+                    }
+                </ul>
+            }
+        </dd>
         <dt class="col-sm-6">
             @Html.DisplayNameFor(model => model.ClosingSong)
         </dt>
@@ -60,6 +74,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-secondary my-1">Edit</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-primary my-1">Edit</a>
     <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>

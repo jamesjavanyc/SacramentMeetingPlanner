@@ -13,9 +13,11 @@ namespace SacramentMeetingPlanner.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dddd, dd MMMM yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dddd, dd MMMM yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Meeting Date")]
         public DateTime Date { get; set; }
+
+        public string DateFormatted => Date.ToString("dddd, dd MMMM yyyy");
 
         [Required]
         [StringLength(250)]
@@ -32,10 +34,9 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Sacrament Hymn")]
         public string SacramentHymn { get; set; } = "";
 
-        [Required]
         [StringLength(250)]
         [Display(Name = "Intermediate Hymn - Music Number")]
-        public string MusicNumber { get; set; } = "";
+        public string? MusicNumber { get; set; }
 
         [Required]
         [StringLength(250)]
@@ -48,8 +49,5 @@ namespace SacramentMeetingPlanner.Models
         public string ClosingPrayer { get; set; } = "";
 
         public List<Talk>? Talks { get; set; }
-
-        // OPTIONAL MEETING TYPE
-        // public int Type { get; set; }
     }
 }

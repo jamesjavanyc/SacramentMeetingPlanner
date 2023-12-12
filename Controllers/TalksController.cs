@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Data;
 using SacramentMeetingPlanner.Models;
+using System.Collections.Immutable;
 
-namespace SacramentMeetingPlanner.Views
+namespace SacramentMeetingPlanner.Controllers
 {
     public class TalksController : Controller
     {
@@ -22,9 +18,9 @@ namespace SacramentMeetingPlanner.Views
         // GET: Talks
         public async Task<IActionResult> Index()
         {
-              return _context.Talk != null ? 
-                          View(await _context.Talk.ToListAsync()) :
-                          Problem("Entity set 'ProgramContext.Talk'  is null.");
+            return _context.Talk != null ?
+                        View(await _context.Talk.ToListAsync()) :
+                        Problem("Entity set 'ProgramContext.Talk'  is null.");
         }
 
         // GET: Talks/Details/5
@@ -36,6 +32,7 @@ namespace SacramentMeetingPlanner.Views
             }
 
             var talk = await _context.Talk
+                .Include(t => t.Meeting)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (talk == null)
             {
@@ -46,8 +43,17 @@ namespace SacramentMeetingPlanner.Views
         }
 
         // GET: Talks/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Meetings = await _context.Meetings
+                .Select(m => new Meeting
+                {
+                    Id = m.Id,
+                    Date = m.Date
+                })
+                .OrderByDescending(m => m.Date)
+                .ToListAsync();
+
             return View();
         }
 
@@ -75,11 +81,24 @@ namespace SacramentMeetingPlanner.Views
                 return NotFound();
             }
 
-            var talk = await _context.Talk.FindAsync(id);
+            var talk = await _context.Talk
+                .Include(t => t.Meeting)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
             if (talk == null)
             {
                 return NotFound();
             }
+
+            ViewBag.Meetings = await _context.Meetings
+                .Select(m => new Meeting
+                {
+                    Id = m.Id,
+                    Date = m.Date
+                })
+                .OrderByDescending(m => m.Date)
+                .ToListAsync();
+
             return View(talk);
         }
 
@@ -150,14 +169,14 @@ namespace SacramentMeetingPlanner.Views
             {
                 _context.Talk.Remove(talk);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TalkExists(int id)
         {
-          return (_context.Talk?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Talk?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

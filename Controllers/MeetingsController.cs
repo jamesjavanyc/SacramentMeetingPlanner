@@ -36,7 +36,9 @@ namespace SacramentMeetingPlanner.Controllers
             }
 
             var meeting = await _context.Meetings
+                .Include(m => m.Talks)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (meeting == null)
             {
                 return NotFound();

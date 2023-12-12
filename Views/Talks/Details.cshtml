@@ -14,7 +14,7 @@
             @Html.DisplayNameFor(model => model.MeetingId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MeetingId)
+            @Model.Meeting?.Date
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Speaker)
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-secondary my-1">Edit Talk</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-sm btn-primary my-1">Edit Talk</a>
     <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>

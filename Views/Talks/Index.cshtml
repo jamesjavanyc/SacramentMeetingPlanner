@@ -7,7 +7,7 @@
 <h3>Talks</h3>
 
 <p>
-    <a asp-action="Create" class="btn btn-secondary btn-sm my-1">+ New Talk</a>
+    <a asp-action="Create" class="btn btn-primary btn-sm my-1">+ New Talk</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-secondary my-1">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary my-1">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary my-1">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger my-1">Delete</a>
             </td>
         </tr>
 }

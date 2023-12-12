@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto&display=swap');
 
+:root {
+    --primary-color: #0d2330;
+    --white: #F2EFDF;
+}
+
 div.container, a, p {
     font-family: 'Poppins', 'Raleway';
     font-size: 1rem;
     font-weight: 400;
-    color: var(--bs-gray-200);
 }
-
 
 h1, h2, h3, h4, h5 {
     color: black;
     font-family: 'Roboto', Poppins;
 }
-.form-topper{
-    margin-top:1rem;
+
+.form-topper {
+    margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -21,29 +25,31 @@ h1, h2, h3, h4, h5 {
         font-size: 1rem;
     }
 }
+
 @media (max-width: 768px) {
     html {
         font-size: .8rem;
     }
 }
+
 @media (max-width: 576px) {
     html {
         font-size: .6rem;
-          }
+    }
+
     .navbar-toggler {
         background-color: #c5e4e4;
     }
+
         .navbar-toggler:hover {
             background-color: #c5e8e8;
-           
         }
 }
+
 @media (min-width: 576px) {
     .navbar-expand-sm {
         flex-wrap: wrap;
     }
-    
-  
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -54,17 +60,19 @@ html {
     position: relative;
     min-height: 100%;
 }
+
 body {
     background-image: url('/img/chapel.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 57px;
 }
 
 main {
     background-color: #b0c2c6;
-    opacity: .9;
+    opacity: .95;
     padding: 2em;
     color: black;
 }
@@ -76,6 +84,13 @@ header, footer {
     padding: 1rem;
 }
 
+    header a,
+    header p,
+    footer a,
+    footer p {
+        color: var(--bs-gray-200);
+    }
+
 div.home_pg {
     display: grid;
     grid-gap: 2%;
@@ -83,13 +98,13 @@ div.home_pg {
     margin: 1rem;
 }
 
-div.home_pg img {
-    width: 25%;
-}
+    div.home_pg img {
+        width: 25%;
+    }
 
-div.home_pg a {
-    text-align:center;
-}
+    div.home_pg a {
+        text-align: center;
+    }
 
 .nav-link {
     font-size: 1.2rem;
@@ -105,24 +120,23 @@ div.home_pg a {
         color: var(--bs-gray-200);
     }
 
-label{
+label {
     margin-top: .5rem;
 }
 
-.btn {
-    background-color: #0d2330;
-    margin-top: .5rem;
-    color: #F2EFDF;
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color) !important;
+    color: var(--white);
 }
 
-    .btn:hover {
-        background-color: #F2EFDF;
-        color: #0d2330;
+    .btn-primary:hover {
+        background-color: var(--white);
+        color: var(--primary-color);
     }
 
 div.formA {
     margin-top: .5rem;
-     
 }
 
 a:hover {
@@ -136,9 +150,8 @@ a {
 }
 
 
-div.sacramentSheet div{
+div.sacramentSheet div {
     text-align: center;
-
 }
 
 div.sacramentSheet {
@@ -150,10 +163,10 @@ div.sacramentSheet {
     display: none;
 }
 
-div.sacramentSheet.printShow {
-    display: revert;
-    padding: 1.5rem;
-}
+    div.sacramentSheet.printShow {
+        display: revert;
+        padding: 1.5rem;
+    }
 
 
 .wardInfo {
@@ -171,10 +184,10 @@ div.sacramentSheet.printShow {
     padding: 3rem;
 }
 
-.meetingBody h3 {
-    font-size: 1rem;
-    text-align: left;
-}
+    .meetingBody h3 {
+        font-size: 1rem;
+        text-align: left;
+    }
 
 div.meetingBody {
     padding: 0.5rem 0;
@@ -182,4 +195,19 @@ div.meetingBody {
 
 div.sacramentSheet div.meetingBody div {
     padding: .5rem 0
+}
+
+.required::after {
+    content: '*';
+    color: var(--bs-red);
+}
+
+.input-validation-error {
+    border-width: 2px !important;
+    border-color: var(--bs-red);
+}
+
+.valid {
+    border-color: var(--bs-green);
+    border-width: 2px !important;
 }

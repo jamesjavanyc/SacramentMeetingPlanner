@@ -10,30 +10,31 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <p>Fields marked with <span class="required"></span> are required.</p>
         <form asp-action="Create">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
+                <label asp-for="Date" class="control-label required"></label>
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Leader" class="control-label"></label>
+                <label asp-for="Leader" class="control-label required"></label>
                 <input asp-for="Leader" class="form-control" />
                 <span asp-validation-for="Leader" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="OpeningSong" class="control-label"></label>
+                <label asp-for="OpeningSong" class="control-label required"></label>
                 <input asp-for="OpeningSong" class="form-control" />
                 <span asp-validation-for="OpeningSong" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="OpeningPrayer" class="control-label"></label>
+                <label asp-for="OpeningPrayer" class="control-label required"></label>
                 <input asp-for="OpeningPrayer" class="form-control" />
                 <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SacramentHymn" class="control-label"></label>
+                <label asp-for="SacramentHymn" class="control-label required"></label>
                 <input asp-for="SacramentHymn" class="form-control" />
                 <span asp-validation-for="SacramentHymn" class="text-danger"></span>
             </div>
@@ -43,24 +44,21 @@
                 <span asp-validation-for="MusicNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClosingSong" class="control-label"></label>
+                <label asp-for="ClosingSong" class="control-label required"></label>
                 <input asp-for="ClosingSong" class="form-control" />
                 <span asp-validation-for="ClosingSong" class="text-danger"></span>
             </div>
              <div class="form-group">
-                <label asp-for="ClosingPrayer" class="control-label"></label>
+                <label asp-for="ClosingPrayer" class="control-label required"></label>
                 <input asp-for="ClosingPrayer" class="form-control" />
                 <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <input type="submit" value="Create Meeting" class="btn btn-sm btn-secondary my-1 mt-3" />
+            <div class="form-group mt-3">
+                <input type="submit" value="Create Meeting" class="btn btn-sm btn-primary my-1" />
+                <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div class="formA">
-    <a asp-action="Index" class="btn btn-sm btn-secondary my-1">Back to List</a>
 </div>
 
 @section Scripts {

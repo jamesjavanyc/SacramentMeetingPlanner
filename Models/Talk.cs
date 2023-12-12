@@ -7,19 +7,18 @@ public class Talk
     public int Id { get; set; }
 
     [Required]
-    [StringLength(10)]
-    [Display(Name = "Meeting Id")]
+    [Display(Name = "Meeting")]
     public int MeetingId { get; set; }
 
     [Required]
     [StringLength(250)]
     [Display(Name = "Speaker")]
-    public string Speaker { get; set; }
+    public string Speaker { get; set; } = string.Empty;
 
     [Required]
     [StringLength(250)]
     [Display(Name = "Topic")]
-    public string Topic { get; set; }
+    public string Topic { get; set; } = string.Empty;
 
-    public Meeting Meeting { get; set; }
+    public Meeting? Meeting { get; set; }
 }
