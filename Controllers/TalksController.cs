@@ -19,7 +19,7 @@ namespace SacramentMeetingPlanner.Controllers
         public async Task<IActionResult> Index()
         {
             return _context.Talk != null ?
-                        View(await _context.Talk.ToListAsync()) :
+                        View(await _context.Talk.Include(m => m.Meeting).ToListAsync()) :
                         Problem("Entity set 'ProgramContext.Talk'  is null.");
         }
 
